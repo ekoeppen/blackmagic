@@ -339,6 +339,7 @@ bool efm32_probe(target *t)
 	target_add_ram (t, SRAM_BASE, ram_size);
 	efm32_add_flash(t, 0x00000000, flash_size, flash_page_size);
 	target_add_commands(t, efm32_cmd_list, "EFM32");
+	t->target_options |= CORTEXM_TOPT_INHIBIT_SRST;
 
 	return true;
 }
